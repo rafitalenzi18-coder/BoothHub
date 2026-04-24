@@ -37,14 +37,6 @@ body {
     gap: 25px;
 }
 
-.main-footer {
-    background-color: #efe5e3;
-    padding: 30px;
-    text-align: center;
-    border-top: 1px solid #ddd;
-    font-size: 0.9rem;
-    color: #777;
-}
 .login-wrapper {
     flex: 1;
     display: flex;
@@ -98,4 +90,13 @@ body {
     font-size: 1.1rem;
     cursor: pointer;
     transition: 0.3s;
+}
+
+.main-footer {
+    background-color: #efe5e3;
+    padding: 30px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    font-size: 0.9rem;
+    color: #777;
 }
