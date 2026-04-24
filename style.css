@@ -92,6 +92,13 @@ body {
     transition: 0.3s;
 }
 
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-bottom: 45px;
+}
+
 .stat-card {
     background: #fff;
     padding: 30px 20px;
