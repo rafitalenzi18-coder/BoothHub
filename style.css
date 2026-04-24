@@ -111,6 +111,11 @@ body {
     font-size: 2.4rem;
     font-weight: 600;
 }
+.highlight { color: #d4a373; }
+
+.next-booking { background-color: #eecbc4; }
+
+.next-booking p, .next-booking .stat-num { color: #fff; }
 .stat-num {
     font-size: 2.4rem;
     font-weight: 600;
