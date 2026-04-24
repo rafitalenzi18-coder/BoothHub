@@ -92,6 +92,13 @@ body {
     transition: 0.3s;
 }
 
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-bottom: 45px;
+}
+
 .main-footer {
     background-color: #efe5e3;
     padding: 30px;
