@@ -151,6 +151,16 @@ body {
     width: 100%;
     border-collapse: collapse;
 }
+.bookings-table td {
+    padding: 20px 0;
+    border-bottom: 1px solid #f8f8f8;
+    font-size: 0.95rem;
+}
+.user-cell {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
 .main-footer {
     background-color: #efe5e3;
     padding: 30px;
