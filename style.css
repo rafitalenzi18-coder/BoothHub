@@ -36,7 +36,69 @@ body {
     align-items: center;
     gap: 25px;
 }
-
+.search-box {
+    background: #fff;
+    border-radius: 20px;
+    padding: 7px 15px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.search-box input {
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+    width: 200px;
+}
+.icon-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #8b5e54;
+    font-size: 1.2rem;
+}
+.icon-actions i {
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.icon-actions i:hover {
+    color: #eecbc4;
+}
+.profile-circle {
+    width: 40px;
+    height: 40px;
+    background-color: #eecbc4;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #fff;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.dashboard-container {
+    display: flex;
+    flex: 1;
+}
+.content-area {
+    flex: 1;
+    padding: 45px;
+    overflow-y: auto;
+}
+.welcome-header {
+    margin-bottom: 65px;
+}
+.welcome-header h1 {
+    font-size: 2.2rem;
+    color: #222;
+}
+.welcome-header p {
+    color: #999;
+    margin: 10px 0 40px 0;
+}
 .login-wrapper {
     flex: 1;
     display: flex;
