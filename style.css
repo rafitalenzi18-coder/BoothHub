@@ -116,6 +116,13 @@ body {
 .next-booking { background-color: #eecbc4; }
 
 .next-booking p, .next-booking .stat-num { color: #fff; }
+.bottom-grid {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+    gap: 30px;
+}
+
+
 .stat-num {
     font-size: 2.4rem;
     font-weight: 600;
