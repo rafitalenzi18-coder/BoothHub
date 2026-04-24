@@ -111,6 +111,10 @@ body {
     font-size: 2.4rem;
     font-weight: 600;
 }
+.stat-num {
+    font-size: 2.4rem;
+    font-weight: 600;
+}
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
