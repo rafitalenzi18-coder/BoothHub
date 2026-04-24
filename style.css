@@ -141,6 +141,16 @@ body {
     align-items: center;
     margin-bottom: 25px;
 }
+.view-all {
+    font-size: 0.9rem;
+    color: #8b5e54;
+    text-decoration: none;
+    font-weight: 700;
+}
+.bookings-table {
+    width: 100%;
+    border-collapse: collapse;
+}
 .main-footer {
     background-color: #efe5e3;
     padding: 30px;
