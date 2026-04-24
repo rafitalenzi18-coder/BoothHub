@@ -180,6 +180,10 @@ body {
     font-weight: 700;
 }
 
+.accepted { background: #e8f5e9; color: #2e7d32; }
+.pending { background: #fff3e0; color: #ef6c00; }
+.rejected { background: #ffebee; color: #c62828; }
+
 .main-footer {
     background-color: #efe5e3;
     padding: 30px;
