@@ -30,7 +30,11 @@ document.addEventListener('click', function(e) {
     }
 });
 
-
+if (e.target.closest('.btn-edit')) {
+            const card = e.target.closest('.service-card');
+            const title = card.querySelector('h3');
+            const price = card.querySelector('.price');
+            const img = card.querySelector('img');
 
 if (e.target.closest('#addServiceBtn')) {
             const n = prompt("What is the name of the new service?");
