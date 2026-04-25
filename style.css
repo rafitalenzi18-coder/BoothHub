@@ -367,6 +367,13 @@ body {
 .service-info {
     padding: 30px;
 }
+.price {
+    display: block;
+    color: #d4a373;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin: 15px 0;
+}
 .main-footer {
     background-color: #efe5e3;
     padding: 30px;
