@@ -15,7 +15,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
  });
+const servicesGrid = document.getElementById('servicesGrid');
+document.addEventListener('click', function(e) {
 
+    if (e.target.closest('.btn-delete')) {
+        const card = e.target.closest('article');
+
+        if (confirm("Are you sure you want to permanently delete this service?")) {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+
+            setTimeout(() => card.remove(), 400);
+        }
+    }
+});
 
 
 
