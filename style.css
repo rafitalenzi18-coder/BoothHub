@@ -340,7 +340,33 @@ body {
 .accepted { background: #e8f5e9; color: #2e7d32; }
 .pending { background: #fff3e0; color: #ef6c00; }
 .rejected { background: #ffebee; color: #c62828; }
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 35px;
+}
 
+.service-card {
+    background: #fff;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+    transition: 0.4s;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+.service-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.service-info {
+    padding: 30px;
+}
 .main-footer {
     background-color: #efe5e3;
     padding: 30px;
