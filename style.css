@@ -374,6 +374,11 @@ body {
     font-size: 1.2rem;
     margin: 15px 0;
 }
+.card-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
 .main-footer {
     background-color: #efe5e3;
     padding: 30px;
