@@ -38,7 +38,10 @@ if (e.target.closest('.btn-edit')) {
     const newTitle = prompt("Update Service Name:", title.innerText);
             const newPrice = prompt("Update Price (Number only):", price.innerText.replace(' ريال', ''));
 const newImg = prompt("Update Image URL (Optional):", img.src);
-    
+    if (newTitle !== null && newTitle !== "") title.innerText = newTitle;
+            if (newPrice !== null && newPrice !== "") price.innerText = newPrice + " ريال";
+            if (newImg !== null && newImg !== "") img.src = newImg;
+        }
 if (e.target.closest('#addServiceBtn')) {
             const n = prompt("What is the name of the new service?");
             const p = prompt("What is the price in SAR?");
