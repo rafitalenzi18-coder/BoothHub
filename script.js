@@ -42,6 +42,9 @@ const newImg = prompt("Update Image URL (Optional):", img.src);
             if (newPrice !== null && newPrice !== "") price.innerText = newPrice + " ريال";
             if (newImg !== null && newImg !== "") img.src = newImg;
         }
+
+
+
 if (e.target.closest('#addServiceBtn')) {
             const n = prompt("What is the name of the new service?");
             const p = prompt("What is the price in SAR?");
