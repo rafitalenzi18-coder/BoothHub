@@ -15,3 +15,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
  });
+
+
+
+
+if (e.target.closest('#addServiceBtn')) {
+            const n = prompt("What is the name of the new service?");
+            const p = prompt("What is the price in SAR?");
+            const i = prompt("Paste the Image URL (or leave for default):", "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085");
