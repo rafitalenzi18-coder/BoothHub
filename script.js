@@ -35,6 +35,8 @@ if (e.target.closest('.btn-edit')) {
             const title = card.querySelector('h3');
             const price = card.querySelector('.price');
             const img = card.querySelector('img');
+    const newTitle = prompt("Update Service Name:", title.innerText);
+            const newPrice = prompt("Update Price (Number only):", price.innerText.replace(' ريال', ''));
 
 if (e.target.closest('#addServiceBtn')) {
             const n = prompt("What is the name of the new service?");
