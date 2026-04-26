@@ -71,10 +71,12 @@ const defaultData = [
         { name: "Jury Albuzaid", booth: "Coffee Booth", date: "Apr 20", amount: 1500, status: "Accepted" },
 { name: "Fajer Alsharekh", booth: "Photography Booth", date: "Apr 19", amount: 2000, status: "Pending"},
 { name: "Roba Alqhtani", booth: "Coffee Booth", date: "Apr 18", amount: 1500, status: "Rejected" },
-{ name: "Retaj Afit", booth: "Photography Booth ", date: "Apr 15", amount: 20000, status: "Accepted" },
+{ name: "Retaj Afit", booth: "Photography Booth ", date: "Apr 15", amount: 2000, status: "Accepted" },
 { name: "Dr. Nabeel", booth: "Coffee Booth ", date: "Apr 25", amount:1500, status: "Accepted" },
 { name: "Layan Omar", booth: "Coffee Booth", date: "Apr 22", amount:1500, status: "Pending" },
-    
+{ name: "Fahad Saad", booth: "Photography Booth", date: "Apr 10", amount:2000, status: "Accepted" },
+{ name: "Reem Saleh", booth: "Photography Booth", date: "Apr 24", amount: 2000, status: "Pending" }
+    ];
 
 
 
