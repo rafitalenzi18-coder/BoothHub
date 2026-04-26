@@ -107,3 +107,27 @@ let allOrders = JSON.parse(localStorage.getItem('boothOrders'))  defaultData;
         pageItems.forEach((order, index) => {
             let initials = getInitials(order.name);
             let assignedColor = colorClasses[index % colorClasses.length];
+if (document.getElementById('prevBtn'))
+    document.getElementById('prevBtn').disabled = (currentPage === 1);
+
+if (document.getElementById('nextBtn'))
+    document.getElementById('nextBtn').disabled = (currentPage * rowsPerPage >= allOrders.length);
+}
+
+
+window.deleteOrder = function(idx) {
+    if (confirm("Are you sure you want to delete this order?")) {
+        allOrders.splice(idx, 1);
+        localStorage.setItem('boothOrders', JSON.stringify(allOrders));
+        displayOrders();
+    }
+};
+
+window.sortOrders = function(type) {
+    if (type === 'highest') allOrders.sort((a, b) => b.amount - a.amount);
+    if (type === 'newest') allOrders.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    currentPage = 1;
+    displayOrders();
+    document.getElementById('filterMenu').style.display = 'none';
+};
