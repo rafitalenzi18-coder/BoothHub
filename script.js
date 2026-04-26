@@ -110,7 +110,7 @@ if (document.getElementById('prevBtn'))
 
 if (document.getElementById('nextBtn'))
     document.getElementById('nextBtn').disabled = (currentPage * rowsPerPage >= allOrders.length);
-}
+});
 
 
 window.deleteOrder = function(idx) {
