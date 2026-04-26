@@ -67,3 +67,29 @@ if (e.target.closest('#addServiceBtn')) {
                 setTimeout(() => newCard.style.opacity = '1', 10);
             }
         }
+
+let allOrders = JSON.parse(localStorage.getItem('boothOrders'))  defaultData;
+    let currentPage = 1;
+    const rowsPerPage = 4;
+
+    function getInitials(name) {
+        let p = name.split(' ');
+        return p.length >= 2 ? (p[0][0] + p[1][0]).toUpperCase() : name.substring(0, 2).toUpperCase();
+    }
+
+
+    function displayOrders() {
+        const tbody = document.getElementById('ordersTableBody');
+        if (!tbody) return;
+
+        tbody.innerHTML = "";
+       
+        const colorClasses = ['color-beige', 'color-gray', 'color-green', 'color-blue', 'color-pink'];
+        
+        let start = (currentPage - 1) * rowsPerPage;
+        let end = start + rowsPerPage;
+        let pageItems = allOrders.slice(start, end);
+
+        pageItems.forEach((order, index) => {
+            let initials = getInitials(order.name);
+            let assignedColor = colorClasses[index % colorClasses.length];
