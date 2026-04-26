@@ -43,9 +43,27 @@ const newImg = prompt("Update Image URL (Optional):", img.src);
             if (newImg !== null && newImg !== "") img.src = newImg;
         }
 
-
-
 if (e.target.closest('#addServiceBtn')) {
             const n = prompt("What is the name of the new service?");
             const p = prompt("What is the price in SAR?");
             const i = prompt("Paste the Image URL (or leave for default):", "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085");
+
+    if (n && p) {
+                const newCard = document.createElement('article');
+                newCard.className = 'service-card';
+                newCard.style.opacity = '0';
+                newCard.innerHTML = `
+                    <img src="${i}" alt="${n}">
+                    <div class="service-info">
+                        <h3>${n}</h3>
+                        <span class="price">${p} ريال</span>
+                        <div class="card-actions">
+                            <button class="btn-edit"><i class="fa fa-pen"></i> Edit</button>
+                            <button class="btn-delete"><i class="fa fa-trash"></i></button>
+                        </div>
+                    </div>
+                `;
+                servicesGrid.insertBefore(newCard, document.getElementById('addServiceBtn'));
+                setTimeout(() => newCard.style.opacity = '1', 10);
+            }
+        }
