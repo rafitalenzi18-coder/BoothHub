@@ -406,3 +406,31 @@ body {
     font-size: 0.9rem;
     color: #777;
 }
+
+.add-service-box {
+    border: 3px dashed #eecbc4;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 30px;
+    background: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.add-service-box:hover { background: #fffcfb; }
+
+.add-circle {
+    width: 70px;
+    height: 70px;
+    background: #eecbc4;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-bottom: 25px;
+    font-size: 2rem;
+}
