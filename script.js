@@ -70,7 +70,11 @@ if (e.target.closest('#addServiceBtn')) {
 const defaultData = [
         { name: "Jury Albuzaid", booth: "Coffee Booth", date: "Apr 20", amount: 1500, status: "Accepted" },
 { name: "Fajer Alsharekh", booth: "Photography Booth", date: "Apr 19", amount: 2000, status: "Pending"},
+{ name: "Roba Alqhtani", booth: "Coffee Booth", date: "Apr 18", amount: 1500, status: "Rejected" },
+{ name: "Retaj Afit", booth: "Photography Booth ", date: "Apr 15", amount: 20000, status: "Accepted" },
 
+
+    
 
 
 
