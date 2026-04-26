@@ -111,6 +111,14 @@ let allOrders = JSON.parse(localStorage.getItem('boothOrders')) || defaultData;
 ‏                        <span class="avatar-circle ${assignedColor}">${initials}</span>
 ‏                        ${order.name}
 ‏                    </div>
+‏        </td>
+‏                <td style="color:#999">${order.booth}</td>
+‏                <td style="color:#999">${order.date}</td>
+‏                <td style="color:#999">${order.amount  0} ريال</td>
+‏                <td><span class="badge ${order.status.toLowerCase()}">${order.status}</span></td>
+‏                <td style="text-align:center">
+‏                    <button class="btn-delete-row" onclick="deleteOrder(${start + index})">
+‏                        <i class="fa fa-trash-can"></i>
 if (document.getElementById('prevBtn'))
     document.getElementById('prevBtn').disabled = (currentPage === 1);
 
