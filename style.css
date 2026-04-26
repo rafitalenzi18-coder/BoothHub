@@ -431,7 +431,9 @@ body {
 .welcome-header h1 { font-size: 2rem; color: #222; }
 .welcome-header p { color: #999; margin-bottom: 30px; }
 
-
+.action-bar { display: flex; gap: 15px; margin-bottom: 25px; }
+.btn-secondary { background: white; border: 1px solid #ddd; padding: 10px 18px; border-radius: 12px; cursor: pointer; color: #666; font-weight: 600; display: flex; align-items: center; gap: 8px; transition: 0.3s; }
+.btn-secondary:hover { border-color: #eecbc4; background: #fef6f4; }
 
 
 
