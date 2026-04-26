@@ -80,8 +80,6 @@ const defaultData = [
 
 
 
-
-
 let allOrders = JSON.parse(localStorage.getItem('boothOrders'))  defaultData;
     let currentPage = 1;
     const rowsPerPage = 4;
