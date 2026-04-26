@@ -119,6 +119,12 @@ let allOrders = JSON.parse(localStorage.getItem('boothOrders')) || defaultData;
 ‏                <td style="text-align:center">
 ‏                    <button class="btn-delete-row" onclick="deleteOrder(${start + index})">
 ‏                        <i class="fa fa-trash-can"></i>
+‏                    </button>
+‏                </td>
+‏            </tr>`;
+‏            tbody.innerHTML += row;
+        });
+
 if (document.getElementById('prevBtn'))
     document.getElementById('prevBtn').disabled = (currentPage === 1);
 
