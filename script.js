@@ -105,6 +105,7 @@ let allOrders = JSON.parse(localStorage.getItem('boothOrders')) || defaultData;
         pageItems.forEach((order, index) => {
             let initials = getInitials(order.name);
             let assignedColor = colorClasses[index % colorClasses.length];
+            
 if (document.getElementById('prevBtn'))
     document.getElementById('prevBtn').disabled = (currentPage === 1);
 
