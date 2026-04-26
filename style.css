@@ -561,7 +561,7 @@ body {
 .dashboard-container {
     display: flex;
     flex: 1;
-    
+}
 .main-footer {
     background-color: #efe5e3;
     padding: 30px;
