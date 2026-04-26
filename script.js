@@ -67,6 +67,14 @@ if (e.target.closest('#addServiceBtn')) {
                 setTimeout(() => newCard.style.opacity = '1', 10);
             }
         }
+const defaultData = [
+        { name: "Jury Albuzaid", booth: "Coffee Booth", date: "Apr 20", amount: 1500, status: "Accepted" },
+
+
+
+
+
+
 
 let allOrders = JSON.parse(localStorage.getItem('boothOrders'))  defaultData;
     let currentPage = 1;
