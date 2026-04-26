@@ -435,6 +435,9 @@ body {
 .btn-secondary { background: white; border: 1px solid #ddd; padding: 10px 18px; border-radius: 12px; cursor: pointer; color: #666; font-weight: 600; display: flex; align-items: center; gap: 8px; transition: 0.3s; }
 .btn-secondary:hover { border-color: #eecbc4; background: #fef6f4; }
 
+.filter-wrapper { position: relative; }
+.dropdown-menu { position: absolute; top: 48px; left: 0; background: white; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); width: 180px; display: none; z-index: 100; border: 1px solid #eee; overflow: hidden; }
+
 .table-card { background: white; border-radius: 25px; padding: 25px; box-shadow: 0 10px 40px rgba(0,0,0,0.02); }
 .orders-table { width: 100%; border-collapse: collapse; }
 .orders-table th { text-align: left; padding: 15px; color: #bbb; font-size: 0.75rem; letter-spacing: 1px; border-bottom: 1px solid #eee; }
