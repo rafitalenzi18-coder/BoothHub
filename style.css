@@ -568,7 +568,14 @@ body {
     flex-direction: column;
     gap: 15px;
 }
-
+.btn-new-booking {
+    background: #d9aba3;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 25px;
+    cursor: pointer;
+}
 
 
 
