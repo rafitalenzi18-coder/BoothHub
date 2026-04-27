@@ -158,3 +158,11 @@ container.innerHTML = bookingRequests.map(user => `
         <div class="request-card" id="card-${user.id}">
             <div class="user-info">
                 <div class="avatar"
+                
+style="background-color: ${user.color}">${user.initial}</div>
+                <div class="details">
+                    <h4>${user.name}</h4>
+                    <p>${user.booth}</p>
+                </div>
+            </div>
+                
