@@ -153,3 +153,8 @@ window.sortOrders = function(type) {
     displayOrders();
     document.getElementById('filterMenu').style.display = 'none';
 };
+
+container.innerHTML = bookingRequests.map(user => `
+        <div class="request-card" id="card-${user.id}">
+            <div class="user-info">
+                <div class="avatar"
