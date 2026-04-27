@@ -165,17 +165,18 @@ style="background-color: ${user.color}">${user.initial}</div>
                     <p>${user.booth}</p>
                 </div>
             </div>
-       <div class="booking-date">${user.date}</div>
-       <div class="actions">
-           <button class="btn btn-reject" onclick="processAction(${user.id})">
-               Reject
-           </button>
+     <div class="booking-date">${user.date}</div>
 
-           <button class="btn btn-accept" onclick="processAction(${user.id})">
-               Accept
-           </button>
-       </div>
-       </div>
-       `).join('');
-}     
+<div class="actions">
+    <button class="btn btn-reject" onclick="processAction(${user.id})">
+        Reject
+    </button>
+
+    <button class="btn btn-accept" onclick="processAction(${user.id})">
+        Accept
+    </button>
+</div>
+</div>
+`).join('');
+} 
     
