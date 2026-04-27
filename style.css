@@ -563,6 +563,11 @@ body {
     background: var(--white);
     font-weight: bold;
 }
+.sidebar-footer-area {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 
 
 
