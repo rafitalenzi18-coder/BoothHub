@@ -584,14 +584,10 @@ body {
     align-items: center;
     gap: 10px;
 }
-
-
-
-
-
-
-
-
+.content-area {
+    flex: 1;
+    padding: 40px 60px;
+}
 
 .main-footer {
     background-color: #efe5e3;
