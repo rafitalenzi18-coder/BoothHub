@@ -165,5 +165,5 @@ style="background-color: ${user.color}">${user.initial}</div>
                     <p>${user.booth}</p>
                 </div>
             </div>
-            <div class="booking-date">${user.date}</div>
+            
     
