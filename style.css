@@ -576,7 +576,14 @@ body {
     border-radius: 25px;
     cursor: pointer;
 }
-
+.logout-link {
+    text-decoration: none;
+    color: #5d4037;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
 
 
