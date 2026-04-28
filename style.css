@@ -649,6 +649,58 @@ body {
     display: flex;
     gap: 10px;
 }
+
+.btn {
+    border: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.btn-reject { background: var(--btn-reject); color: #d32f2f; }
+.btn-accept { background: var(--btn-accept); color: #2e7d32; }
+
+.notifications-sidebar { flex: 0.9; }
+
+.notif-card {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.notif-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.notif-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #fdfaf8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.notif-text b { display: block; font-size: 13px; }
+.notif-text small { color: #999; font-size: 11px; }
+
+.view-history {
+    width: 100%;
+    border: 1px solid #eee;
+    background: transparent;
+    padding: 10px;
+    border-radius: 8px;
+    color: #777;
+    cursor: pointer;
+}
+
+
 .main-footer {
     background-color: #efe5e3;
     padding: 30px;
