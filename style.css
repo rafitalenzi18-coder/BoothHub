@@ -601,23 +601,7 @@ body {
     color: var(--primary-text);
 }
 
-.search-box {
-    background: #333;
-    padding: 5px 15px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-search-box input {
-    background: none;
-    border: none;
-    color: white;
-    outline: none;
-}
-
-.icon-actions {
+icon-actions {
     display: flex;
     gap: 15px;
     align-items: center;
@@ -657,11 +641,7 @@ nav-links li { margin-bottom: 5px; }
     background: var(--white);
     font-weight: bold;
 }
-.sidebar-footer-area {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
+
 .btn-new-booking {
     background: #d9aba3;
     color: white;
