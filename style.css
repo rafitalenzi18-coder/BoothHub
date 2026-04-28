@@ -588,7 +588,7 @@ body {
 .notifications-sidebar { flex: 0.9; }
 
 .notif-card {
-    background: var(--white);
+    background: transparent;
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
@@ -625,7 +625,7 @@ body {
 }
 
 .notifications-sidebar {
-    background-color: white; 
+    background-color: #f9f9f9; 
     border-radius: 20px;     
     padding: 25px;           
     box-shadow: 0 4px 15px rgba(0,0,0,0.02); 
