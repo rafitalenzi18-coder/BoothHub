@@ -631,16 +631,18 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.02); 
 }
 
-requests-title {
+.requests-title {
     font-size: 1.2rem;
     color: #4a342e;
     margin-bottom: 20px;
+    font-weight: 600;
 }
 
 .booking-requests-list {
     display: flex;
     flex-direction: column;
-    gap: 20px; /*
+    gap: 15px;
+    width: 100%;
 }
 
 .request-card {
@@ -657,7 +659,7 @@ requests-title {
     display: flex;
     align-items: center;
     gap: 15px;
-    min-width: 200px;
+    flex: 1;
 }
 
 .user-avatar {
@@ -690,19 +692,24 @@ requests-title {
 .booking-date {
     font-size: 0.9rem;
     color: #666;
+    flex: 1;
+    text-align: center;
 }
 
 .action-buttons {
     display: flex;
     gap: 10px;
+    flex: 1;
+    justify-content: flex-end;
 }
 
 .action-buttons button {
     border: none;
-    padding: 8px 18px;
+    padding: 8px 20px;
     border-radius: 20px;
     font-size: 0.85rem;
     cursor: pointer;
+    font-weight: 500;
     transition: 0.3s;
 }
 
