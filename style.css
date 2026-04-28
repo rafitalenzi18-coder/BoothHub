@@ -624,8 +624,12 @@ body {
     cursor: pointer;
 }
 
-.sidebar-color: #ede2dd;
-
+.notifications-sidebar {
+    background-color: white; 
+    border-radius: 20px;     
+    padding: 25px;           
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02); 
+}
 
 .main-footer {
     background-color: #efe5e3;
