@@ -731,18 +731,16 @@ booking-requests-list {
     font-size: 0.9rem;
     color: #777;
 }
-main {
+booking-flex-layout {
     display: flex;
-    justify-content: space-between; 
     align-items: flex-start;
-    gap: 40px;
+    gap: 30px;
+    width: 100%;
 }
 
-.notifications-sidebar {
-    width: 280px;
-    min-width: 280px;
+.welcome-header {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
 }
 
-.booking-requests-list {
-    flex-grow: 1; 
-}
