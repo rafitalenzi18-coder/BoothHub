@@ -623,6 +623,12 @@ search-box input {
     align-items: center;
 }
 
+profile-circle {
+    width: 30px;
+    height: 30px;
+    background: #555;
+    border-radius: 50%;
+
 .nav-links li.active a {
     background: var(--white);
     font-weight: bold;
