@@ -192,7 +192,9 @@ document.addEventListener('DOMContentLoaded', function() {
     displayOrders();
 
 });
-    
+
+const bookingRequests = [
+    { id: 1, name: "Nouf AlHarbi", booth: "Coffee Booth", date: "Apr 4, 2026", initial: "NA", color: "#FADADD" },
 function displayRequests() {
     const container = document.getElementById('bookingList');
     if (!container) return;
