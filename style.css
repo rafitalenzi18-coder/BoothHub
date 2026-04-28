@@ -634,7 +634,7 @@ body {
 booking-requests-list {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 30px;
     margin-top: 20px;
 }
 
@@ -645,7 +645,7 @@ booking-requests-list {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* ظل خفيف جداً */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); 
 }
 
 .user-info {
@@ -730,4 +730,19 @@ booking-requests-list {
     border-top: 1px solid #ddd;
     font-size: 0.9rem;
     color: #777;
+}
+main {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.notifications-sidebar {
+    width: 280px;
+    min-width: 280px;
+}
+
+.booking-requests-list {
+    flex-grow: 1; 
 }
