@@ -132,15 +132,15 @@ let allOrders = JSON.parse(localStorage.getItem('boothOrders')) || defaultData;
 tbody.innerHTML += row;
         });
 
-‏        const pageInfo = document.getElementById('pageInfo');
-‏        if (pageInfo) pageInfo.innerText = `Showing ${start + 1}-${Math.min(end, allOrders.length)} of ${allOrders.length} orders`;
-if (document.getElementById('prevBtn'))
-    document.getElementById('prevBtn').disabled = (currentPage === 1);
+        const pageInfo = document.getElementById('pageInfo');
+        if (pageInfo) pageInfo.innerText = `Showing ${start + 1}-${Math.min(end, allOrders.length)} of ${allOrders.length} orders`;
 
-if (document.getElementById('nextBtn'))
-    document.getElementById('nextBtn').disabled = (currentPage * rowsPerPage >= allOrders.length);
-    });
-}        
+        if (document.getElementById('prevBtn'))
+            document.getElementById('prevBtn').disabled = (currentPage === 1);
+
+        if (document.getElementById('nextBtn'))
+            document.getElementById('nextBtn').disabled = (currentPage * rowsPerPage >= allOrders.length);
+    }   
                         
 
 
