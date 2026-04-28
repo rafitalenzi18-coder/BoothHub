@@ -630,3 +630,41 @@ body {
     padding: 25px;           
     box-shadow: 0 4px 15px rgba(0,0,0,0.02); 
 }
+
+content-area {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.booking-requests-section {
+    flex: 2;
+}
+
+.notifications-sidebar {
+    flex: 1;
+}
+
+.booking-card {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.user-info { display: flex; align-items: center; gap: 10px; }
+.avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+.na-bg { background-color: #fce4ec; }
+.la-bg { background-color: #e1f5fe; }
+.rf-bg { background-color: #fff9c4; }
+
+.user-name { display: block; font-weight: bold; }
+.booth-type { font-size: 0.8rem; color: #888; }
+.btn-accept { background-color: #e8f5e9; color: #2e7d32; border: none; padding: 5px 15px; border-radius: 10px; cursor: pointer; }
+.btn-reject { background-color: #ffebee; color: #c62828; border: none; padding: 5px 15px; border-radius: 10px; cursor: pointer; margin-right: 5px; }
+
