@@ -15,58 +15,64 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
  });
-const servicesGrid = document.getElementById('servicesGrid');
 document.addEventListener('click', function(e) {
 
+    
     if (e.target.closest('.btn-delete')) {
         const card = e.target.closest('article');
 
         if (confirm("Are you sure you want to permanently delete this service?")) {
             card.style.opacity = '0';
             card.style.transform = 'translateY(20px)';
-
             setTimeout(() => card.remove(), 400);
         }
     }
-});
 
-if (e.target.closest('.btn-edit')) {
-            const card = e.target.closest('.service-card');
-            const title = card.querySelector('h3');
-            const price = card.querySelector('.price');
-            const img = card.querySelector('img');
-    const newTitle = prompt("Update Service Name:", title.innerText);
-            const newPrice = prompt("Update Price (Number only):", price.innerText.replace(' ريال', ''));
-const newImg = prompt("Update Image URL (Optional):", img.src);
-    if (newTitle !== null && newTitle !== "") title.innerText = newTitle;
-            if (newPrice !== null && newPrice !== "") price.innerText = newPrice + " ريال";
-            if (newImg !== null && newImg !== "") img.src = newImg;
-        }
+    
+    if (e.target.closest('.btn-edit')) {
+        const card = e.target.closest('.service-card');
+        const title = card.querySelector('h3');
+        const price = card.querySelector('.price');
+        const img = card.querySelector('img');
 
-if (e.target.closest('#addServiceBtn')) {
-            const n = prompt("What is the name of the new service?");
-            const p = prompt("What is the price in SAR?");
-            const i = prompt("Paste the Image URL (or leave for default):", "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085");
+        const newTitle = prompt("Update Service Name:", title.innerText);
+        const newPrice = prompt("Update Price (Number only):", price.innerText.replace(' ريال', ''));
+        const newImg = prompt("Update Image URL (Optional):", img.src);
 
-    if (n && p) {
-                const newCard = document.createElement('article');
-                newCard.className = 'service-card';
-                newCard.style.opacity = '0';
-                newCard.innerHTML = `
-                    <img src="${i}" alt="${n}">
-                    <div class="service-info">
-                        <h3>${n}</h3>
-                        <span class="price">${p} ريال</span>
-                        <div class="card-actions">
-                            <button class="btn-edit"><i class="fa fa-pen"></i> Edit</button>
-                            <button class="btn-delete"><i class="fa fa-trash"></i></button>
-                        </div>
+        if (newTitle) title.innerText = newTitle;
+        if (newPrice) price.innerText = newPrice + " ريال";
+        if (newImg) img.src = newImg;
+    }
+
+   
+    if (e.target.closest('#addServiceBtn')) {
+        const n = prompt("What is the name of the new service?");
+        const p = prompt("What is the price in SAR?");
+        const i = prompt("Paste the Image URL (or leave for default):", "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085");
+
+        if (n && p) {
+            const newCard = document.createElement('article');
+            newCard.className = 'service-card';
+            newCard.style.opacity = '0';
+
+            newCard.innerHTML = `
+                <img src="${i}" alt="${n}">
+                <div class="service-info">
+                    <h3>${n}</h3>
+                    <span class="price">${p} ريال</span>
+                    <div class="card-actions">
+                        <button class="btn-edit">Edit</button>
+                        <button class="btn-delete">Delete</button>
                     </div>
-                `;
-                servicesGrid.insertBefore(newCard, document.getElementById('addServiceBtn'));
-                setTimeout(() => newCard.style.opacity = '1', 10);
-            }
+                </div>
+            `;
+
+            servicesGrid.insertBefore(newCard, document.getElementById('addServiceBtn'));
+            setTimeout(() => newCard.style.opacity = '1', 10);
         }
+    }
+
+});
 
 const defaultData = [
         { name: "Jury Albuzaid", booth: "Coffee Booth", date: "Apr 20", amount: 1500, status: "Accepted" },
