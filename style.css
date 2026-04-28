@@ -609,7 +609,15 @@ body {
     align-items: center;
     gap: 10px;
 }
-    
+
+search-box input {
+    background: none;
+    border: none;
+    color: white;
+    outline: none;
+}
+
+
 .nav-links li.active a {
     background: var(--white);
     font-weight: bold;
