@@ -156,6 +156,50 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('filterMenu').style.display = 'none';
     };
 
+const newBtn = document.getElementById('newBookingBtn');
+    if (newBtn) {
+        newBtn.onclick = function() {
+            let n = prompt("Customer Name:"); 
+            let b = prompt("Booth Type:"); 
+            let a = prompt("Amount (SAR):");
+            let d = prompt("Enter Date (e.g., Apr 26):");
+            if (n && b && a) {
+                allOrders.unshift({
+                    name: n, 
+                    booth: b, 
+                    amount: parseInt(a), 
+                    date: d || "Today", 
+                    status: "Pending"
+                });
+                localStorage.setItem('boothOrders', JSON.stringify(allOrders));
+                displayOrders();
+                alert("New booking added successfully!");
+            }
+        };
+    }
+
+   
+    if (document.getElementById('nextBtn')) {
+        document.getElementById('nextBtn').onclick = () => { currentPage++; displayOrders(); };
+        document.getElementById('prevBtn').onclick = () => { currentPage--; displayOrders(); };
+    }
+
+   
+    const fBtn = document.getElementById('filterBtn');
+    if (fBtn) {
+        fBtn.onclick = (e) => {
+            e.stopPropagation();
+            const m = document.getElementById('filterMenu');
+            m.style.display = m.style.display === 'block' ? 'none' : 'block';
+        };
+    }
+
+    window.onclick = () => { if(document.getElementById('filterMenu')) document.getElementById('filterMenu').style.display = 'none'; };
+
+    displayOrders();
+});
+
+    
     if (document.getElementById('nextBtn')) {
         document.getElementById('nextBtn').onclick = () => { currentPage++; displayOrders(); };
     }
