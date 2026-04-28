@@ -197,6 +197,7 @@ const bookingRequests = [
     { id: 1, name: "Nouf AlHarbi", booth: "Coffee Booth", date: "Apr 4, 2026", initial: "NA", color: "#FADADD" },
     { id: 2, name: "Layan AlMutairi", booth: "Photography Booth", date: "Mar 10, 2026", initial: "LA", color: "#D4E6F1" },
     { id: 3, name: "Ruba Fahad", booth: "Coffee Booth", date: "Feb 15, 2026", initial: "RF", color: "#FCF3CF" }
+    ];
 function displayRequests() {
     const container = document.getElementById('bookingList');
     if (!container) return;
