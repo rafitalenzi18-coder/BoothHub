@@ -74,20 +74,22 @@ document.addEventListener('click', function(e) {
 
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+
 const defaultData = [
-        { name: "Jury Albuzaid", booth: "Coffee Booth", date: "Apr 20", amount: 1500, status: "Accepted" },
-{ name: "Fajer Alsharekh", booth: "Photography Booth", date: "Apr 19", amount: 2000, status: "Pending"},
-{ name: "Roba Alqhtani", booth: "Coffee Booth", date: "Apr 18", amount: 1500, status: "Rejected" },
-{ name: "Retaj Afit", booth: "Photography Booth ", date: "Apr 15", amount: 2000, status: "Accepted" },
-{ name: "Dr. Nabeel", booth: "Coffee Booth ", date: "Apr 25", amount:1500, status: "Accepted" },
-{ name: "Layan Omar", booth: "Coffee Booth", date: "Apr 22", amount:1500, status: "Pending" },
-{ name: "Fahad Saad", booth: "Photography Booth", date: "Apr 10", amount:2000, status: "Accepted" },
-{ name: "Reem Saleh", booth: "Photography Booth", date: "Apr 24", amount: 2000, status: "Pending" }
+        { id: 1, name: "Jury Albuzaid", booth: "Coffee Booth", date: "Apr 20", amount: 1500, status: "Accepted" },
+        { id: 2, name: "Fajer Alsharekh", booth: "Photography Booth", date: "Apr 19", amount: 2000, status: "Pending"},
+        { id: 3, name: "Roba Alqhtani", booth: "Coffee Booth", date: "Apr 18", amount: 1500, status: "Rejected" },
+        { id: 4, name: "Retaj Afit", booth: "Photography Booth", date: "Apr 15", amount: 2000, status: "Accepted" },
+        { id: 5, name: "Dr. Nabeel", booth: "Coffee Booth", date: "Apr 25", amount: 1500, status: "Accepted" },
+        { id: 6, name: "Layan Omar", booth: "Coffee Booth", date: "Apr 22", amount: 1500, status: "Pending" },
+        { id: 7, name: "Fahad Saad", booth: "Photography Booth", date: "Apr 10", amount: 2000, status: "Accepted" },
+        { id: 8, name: "Reem Saleh", booth: "Photography Booth", date: "Apr 24", amount: 2000, status: "Pending" }
     ];
 
+let savedData = JSON.parse(localStorage.getItem('boothOrders'));
+    let allOrders = (savedData && savedData.length > 0) ? savedData : defaultData;
 
-
-let allOrders = JSON.parse(localStorage.getItem('boothOrders')) || defaultData;
     let currentPage = 1;
     const rowsPerPage = 4;
 
@@ -96,13 +98,11 @@ let allOrders = JSON.parse(localStorage.getItem('boothOrders')) || defaultData;
         return p.length >= 2 ? (p[0][0] + p[1][0]).toUpperCase() : name.substring(0, 2).toUpperCase();
     }
 
-
     function displayOrders() {
         const tbody = document.getElementById('ordersTableBody');
         if (!tbody) return;
 
         tbody.innerHTML = "";
-       
         const colorClasses = ['color-beige', 'color-gray', 'color-green', 'color-blue', 'color-pink'];
         
         let start = (currentPage - 1) * rowsPerPage;
@@ -112,27 +112,28 @@ let allOrders = JSON.parse(localStorage.getItem('boothOrders')) || defaultData;
         pageItems.forEach((order, index) => {
             let initials = getInitials(order.name);
             let assignedColor = colorClasses[index % colorClasses.length];
-            let row = `<tr>
-    <td>
-        <div class="user-cell">
-            <span class="avatar-circle ${assignedColor}">${initials}</span>
-            ${order.name}
-        </div>
-    </td>
-    <td style="color:#999">${order.booth}</td>
-    <td style="color:#999">${order.date}</td>
-    <td style="color:#999">${order.amount ?? 0} ريال</td>
-    <td><span class="badge ${order.status.toLowerCase()}">${order.status}</span></td>
-    <td style="text-align:center">
-        <button class="btn-delete-row" onclick="deleteOrder(${start + index})">
-            <i class="fa fa-trash-can"></i>
-        </button>
-    </td>
-</tr>`;
-tbody.innerHTML += row;
+            let row = `
+                <tr>
+                    <td>
+                        <div class="user-cell">
+                            <span class="avatar-circle ${assignedColor}">${initials}</span>
+                            ${order.name}
+                        </div>
+                    </td>
+                    <td style="color:#999">${order.booth}</td>
+                    <td style="color:#999">${order.date}</td>
+                    <td style="color:#999">${order.amount ?? 0} ريال</td>
+                    <td><span class="badge ${order.status.toLowerCase()}">${order.status}</span></td>
+                    <td style="text-align:center">
+                        <button class="btn-delete-row" onclick="deleteOrder(${start + index})">
+                            <i class="fa fa-trash-can"></i>
+                        </button>
+                    </td>
+                </tr>`;
+            tbody.innerHTML += row;
         });
 
-        const pageInfo = document.getElementById('pageInfo');
+       const pageInfo = document.getElementById('pageInfo');
         if (pageInfo) pageInfo.innerText = `Showing ${start + 1}-${Math.min(end, allOrders.length)} of ${allOrders.length} orders`;
 
         if (document.getElementById('prevBtn'))
@@ -140,26 +141,29 @@ tbody.innerHTML += row;
 
         if (document.getElementById('nextBtn'))
             document.getElementById('nextBtn').disabled = (currentPage * rowsPerPage >= allOrders.length);
-    }   
-                        
-
-
-window.deleteOrder = function(idx) {
-    if (confirm("Are you sure you want to delete this order?")) {
-        allOrders.splice(idx, 1);
-        localStorage.setItem('boothOrders', JSON.stringify(allOrders));
-        displayOrders();
     }
-};
-
+                        
+window.deleteOrder = function(idx) {
+        if (confirm("Are you sure you want to delete this order?")) {
+            allOrders.splice(idx, 1);
+            localStorage.setItem('boothOrders', JSON.stringify(allOrders));
+            displayOrders();
+        }
+    };
+    
 window.sortOrders = function(type) {
-    if (type === 'highest') allOrders.sort((a, b) => b.amount - a.amount);
-    if (type === 'newest') allOrders.sort((a, b) => new Date(b.date) - new Date(a.date));
+        if (type === 'highest') allOrders.sort((a, b) => b.amount - a.amount);
+        if (type === 'newest') allOrders.sort((a, b) => new Date(b.date) - new Date(a.date));
+        currentPage = 1;
+        displayOrders();
+        document.getElementById('filterMenu').style.display = 'none';
+    };
 
-    currentPage = 1;
-    displayOrders();
-    document.getElementById('filterMenu').style.display = 'none';
-};
+    if (document.getElementById('nextBtn')) {
+        document.getElementById('nextBtn').onclick = () => { currentPage++; displayOrders(); };
+        document.getElementById('prevBtn').onclick = () => { currentPage--; displayOrders(); };
+    }
+    
 function displayRequests() {
     const container = document.getElementById('bookingList');
     if (!container) return;
