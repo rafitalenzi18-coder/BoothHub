@@ -76,7 +76,7 @@ document.addEventListener('click', function(e) {
 
 document.addEventListener('DOMContentLoaded', function() {
 
-const defaultData = [
+    const defaultData = [
         { id: 1, name: "Jury Albuzaid", booth: "Coffee Booth", date: "Apr 20", amount: 1500, status: "Accepted" },
         { id: 2, name: "Fajer Alsharekh", booth: "Photography Booth", date: "Apr 19", amount: 2000, status: "Pending"},
         { id: 3, name: "Roba Alqhtani", booth: "Coffee Booth", date: "Apr 18", amount: 1500, status: "Rejected" },
@@ -87,7 +87,7 @@ const defaultData = [
         { id: 8, name: "Reem Saleh", booth: "Photography Booth", date: "Apr 24", amount: 2000, status: "Pending" }
     ];
 
-let savedData = JSON.parse(localStorage.getItem('boothOrders'));
+    let savedData = JSON.parse(localStorage.getItem('boothOrders'));
     let allOrders = (savedData && savedData.length > 0) ? savedData : defaultData;
 
     let currentPage = 1;
@@ -98,7 +98,7 @@ let savedData = JSON.parse(localStorage.getItem('boothOrders'));
         return p.length >= 2 ? (p[0][0] + p[1][0]).toUpperCase() : name.substring(0, 2).toUpperCase();
     }
 
-    function displayOrders() {
+    window.displayOrders = function() {
         const tbody = document.getElementById('ordersTableBody');
         if (!tbody) return;
 
@@ -133,23 +133,39 @@ let savedData = JSON.parse(localStorage.getItem('boothOrders'));
             tbody.innerHTML += row;
         });
 
-       const pageInfo = document.getElementById('pageInfo');
+        const pageInfo = document.getElementById('pageInfo');
         if (pageInfo) pageInfo.innerText = `Showing ${start + 1}-${Math.min(end, allOrders.length)} of ${allOrders.length} orders`;
 
-        if (document.getElementById('prevBtn'))
-            document.getElementById('prevBtn').disabled = (currentPage === 1);
+        if (document.getElementById('prevBtn')) document.getElementById('prevBtn').disabled = (currentPage === 1);
+        if (document.getElementById('nextBtn')) document.getElementById('nextBtn').disabled = (currentPage * rowsPerPage >= allOrders.length);
+    };
 
-        if (document.getElementById('nextBtn'))
-            document.getElementById('nextBtn').disabled = (currentPage * rowsPerPage >= allOrders.length);
-    }
-                        
-window.deleteOrder = function(idx) {
+    window.deleteOrder = function(idx) {
         if (confirm("Are you sure you want to delete this order?")) {
             allOrders.splice(idx, 1);
             localStorage.setItem('boothOrders', JSON.stringify(allOrders));
             displayOrders();
         }
     };
+
+    window.sortOrders = function(type) {
+        if (type === 'highest') allOrders.sort((a, b) => b.amount - a.amount);
+        if (type === 'newest') allOrders.sort((a, b) => new Date(b.date) - new Date(a.date));
+        currentPage = 1;
+        displayOrders();
+        document.getElementById('filterMenu').style.display = 'none';
+    };
+
+    if (document.getElementById('nextBtn')) {
+        document.getElementById('nextBtn').onclick = () => { currentPage++; displayOrders(); };
+    }
+    if (document.getElementById('prevBtn')) {
+        document.getElementById('prevBtn').onclick = () => { currentPage--; displayOrders(); };
+    }
+
+    displayOrders();
+
+});
     
 window.sortOrders = function(type) {
         if (type === 'highest') allOrders.sort((a, b) => b.amount - a.amount);
