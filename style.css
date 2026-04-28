@@ -730,3 +730,24 @@ body {
 .accept-btn:hover {
     background-color: #c8e6c9;
 }
+
+content-area {
+    padding-bottom: 100px !important; 
+}
+
+.main-footer {
+    position: fixed; 
+    bottom: 0;
+    right: 0;
+
+    width: calc(100% - 280px); 
+    background-color: #fdf8f7;
+    padding: 15px 40px;
+    border-top: 1px solid #eee;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 0.85rem;
+    color: #8b5e54;
+}
