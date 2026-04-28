@@ -163,6 +163,8 @@ window.sortOrders = function(type) {
         document.getElementById('nextBtn').onclick = () => { currentPage++; displayOrders(); };
         document.getElementById('prevBtn').onclick = () => { currentPage--; displayOrders(); };
     }
+
+    displayOrders();
     
 function displayRequests() {
     const container = document.getElementById('bookingList');
