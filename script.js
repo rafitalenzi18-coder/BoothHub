@@ -179,4 +179,14 @@ style="background-color: ${user.color}">${user.initial}</div>
 </div>
 `).join('');
 } 
+
+function processAction(id) {
+    const card = document.getElementById(`card-${id}`);
+    if (card) {
+        card.style.opacity = '0';
+        setTimeout(() => card.remove(), 300);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', displayRequests);
     
