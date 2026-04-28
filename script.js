@@ -185,8 +185,6 @@ function displayRequests() {
         </div>
     `).join('');
 }
-
-
 function processAction(id) {
     const card = document.getElementById(`card-${id}`);
     if (card) {
