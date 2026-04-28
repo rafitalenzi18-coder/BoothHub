@@ -160,32 +160,32 @@ window.sortOrders = function(type) {
     displayOrders();
     document.getElementById('filterMenu').style.display = 'none';
 };
+function displayRequests() {
+    const container = document.getElementById('bookingList');
+    if (!container) return;
 
-container.innerHTML = bookingRequests.map(user => `
+    container.innerHTML = bookingRequests.map(user => `
         <div class="request-card" id="card-${user.id}">
             <div class="user-info">
-                <div class="avatar"
-                
-style="background-color: ${user.color}">${user.initial}</div>
+                <div class="avatar" style="background-color: ${user.color}">
+                    ${user.initial}
+                </div>
                 <div class="details">
                     <h4>${user.name}</h4>
                     <p>${user.booth}</p>
                 </div>
             </div>
-     <div class="booking-date">${user.date}</div>
 
-<div class="actions">
-    <button class="btn btn-reject" onclick="processAction(${user.id})">
-        Reject
-    </button>
+            <div class="booking-date">${user.date}</div>
 
-    <button class="btn btn-accept" onclick="processAction(${user.id})">
-        Accept
-    </button>
-</div>
-</div>
-`).join('');
-} 
+            <div class="actions">
+                <button class="btn btn-reject" onclick="processAction(${user.id})">Reject</button>
+                <button class="btn btn-accept" onclick="processAction(${user.id})">Accept</button>
+            </div>
+        </div>
+    `).join('');
+}
+
 
 function processAction(id) {
     const card = document.getElementById(`card-${id}`);
