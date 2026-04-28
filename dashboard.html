@@ -98,24 +98,32 @@
                         </tr>
                     </table>
                 </div>
-                    <div class="notifications-panel">
-                    <h3>Notifications</h3>
-                    <ul style="list-style:none; margin-top:15px;">
-                        <li style="margin-bottom:20px; display:flex; gap:10px;">
-                            <span>🔔</span>
-                            <div>
-                                <p style="font-size:0.9rem; font-weight:600;">New booking request</p>
-                                <small style="color:#aaa;">2 HOURS AGO</small>
+                    <div class="notifications-sidebar">
+                    <h3 style="margin-bottom: 20px;">Notifications</h3>
+                    <div class="notif-card">
+                        <div class="notif-item">
+                            <div class="notif-icon" style="color: #e5a5a5;"><i class="fa fa-bell"></i></div>
+                            <div class="notif-text">
+                                <b>New booking request</b>
+                                <small>2 HOURS AGO</small>
                             </div>
-                        </li>
-                        <li style="margin-bottom:20px; display:flex; gap:10px;">
-                            <span>✅</span>
-                            <div>
-                               <p style="font-size:0.9rem; font-weight:600;">Booking confirmed</p> 
-                                <small style="color:#aaa;">5 HOURS AGO</small>
+                        </div>
+                              <div class="notif-item">
+                            <div class="notif-icon" style="color: #a5e5c5;"><i class="fa fa-check-circle"></i></div>
+                            <div class="notif-text">
+                                <b>Booking confirmed</b>
+                                <small>5 HOURS AGO</small>
                             </div>
-                        </li>
-                    </ul>
+                        </div>
+                         <div class="notif-item">
+                            <div class="notif-icon" style="color: #a5c5e5;"><i class="fa fa-wallet"></i></div>
+    <div class="notif-text">
+                                <b>Payment received</b>
+                                <small>21 HOURS AGO</small>
+                            </div>
+                        </div>
+                        <button class="view-history">View Full History</button>
+                    </div>
                 </div>
             </div>
         </main>
