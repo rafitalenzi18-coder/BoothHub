@@ -634,6 +634,11 @@ profile-circle {
     font-size: 12px;
 }
 
+dashboard-container {
+    display: flex;
+    min-height: calc(100vh - 100px);
+}
+
 
 .nav-links li.active a {
     background: var(--white);
