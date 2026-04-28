@@ -166,6 +166,8 @@ window.sortOrders = function(type) {
 
     displayOrders();
     
+    });
+    
 function displayRequests() {
     const container = document.getElementById('bookingList');
     if (!container) return;
