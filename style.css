@@ -617,6 +617,11 @@ search-box input {
     outline: none;
 }
 
+.icon-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
 
 .nav-links li.active a {
     background: var(--white);
