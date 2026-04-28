@@ -585,6 +585,15 @@ body {
     cursor: not-allowed;
 }
 
+:root {
+    --bg-color: #f6efeb;
+    --sidebar-color: #ede2dd;
+    --primary-text: #5d4037;
+    --white: #ffffff;
+    --btn-reject: #f8dee0;
+    --btn-accept: #dcf2e7;
+}
+
 .nav-links li.active a {
     background: var(--white);
     font-weight: bold;
