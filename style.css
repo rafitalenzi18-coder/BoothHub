@@ -506,6 +506,32 @@ body {
     font-size: 0.8rem;
     box-shadow: 0 2px 4px rgba(0,0,0,0.02);
     }
+
+.color-beige { 
+    background-color: #f5ebe0; 
+    color: #8b5e54; 
+}
+
+.color-gray { 
+    background-color: #f8f9fa; 
+    color: #6c757d; 
+}
+
+.color-green { 
+    background-color: #d8e2dc; 
+    color: #6b9080; 
+}
+
+.color-blue { 
+    background-color: #dbecf4; 
+    color: #5b8ea3; 
+}
+
+.color-pink { 
+    background-color: #ffcad4; 
+    color: #b5838d; 
+}
+
 .btn-delete-row {
     background: #fff5f5;
     color: #ff4d4d;
