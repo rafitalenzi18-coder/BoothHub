@@ -631,15 +631,6 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.02); 
 }
 
-.main-footer {
-    background-color: #efe5e3;
-    padding: 30px;
-    text-align: center;
-    border-top: 1px solid #ddd;
-    font-size: 0.9rem;
-    color: #777;
-}
-
 booking-requests-list {
     display: flex;
     flex-direction: column;
@@ -732,3 +723,11 @@ booking-requests-list {
     margin-bottom: 5px;
 }
 
+.main-footer {
+    background-color: #efe5e3;
+    padding: 30px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    font-size: 0.9rem;
+    color: #777;
+}
