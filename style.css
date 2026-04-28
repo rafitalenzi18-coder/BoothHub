@@ -639,6 +639,19 @@ dashboard-container {
     min-height: calc(100vh - 100px);
 }
 
+nav-links li { margin-bottom: 5px; }
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--primary-text);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-size: 14px;
+}
+
 
 .nav-links li.active a {
     background: var(--white);
