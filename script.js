@@ -156,50 +156,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('filterMenu').style.display = 'none';
     };
 
-const newBtn = document.getElementById('newBookingBtn');
-    if (newBtn) {
-        newBtn.onclick = function() {
-            let n = prompt("Customer Name:"); 
-            let b = prompt("Booth Type:"); 
-            let a = prompt("Amount (SAR):");
-            let d = prompt("Enter Date (e.g., Apr 26):");
-            if (n && b && a) {
-                allOrders.unshift({
-                    name: n, 
-                    booth: b, 
-                    amount: parseInt(a), 
-                    date: d || "Today", 
-                    status: "Pending"
-                });
-                localStorage.setItem('boothOrders', JSON.stringify(allOrders));
-                displayOrders();
-                alert("New booking added successfully!");
-            }
-        };
-    }
-
-   
-    if (document.getElementById('nextBtn')) {
-        document.getElementById('nextBtn').onclick = () => { currentPage++; displayOrders(); };
-        document.getElementById('prevBtn').onclick = () => { currentPage--; displayOrders(); };
-    }
-
-   
-    const fBtn = document.getElementById('filterBtn');
-    if (fBtn) {
-        fBtn.onclick = (e) => {
-            e.stopPropagation();
-            const m = document.getElementById('filterMenu');
-            m.style.display = m.style.display === 'block' ? 'none' : 'block';
-        };
-    }
-
-    window.onclick = () => { if(document.getElementById('filterMenu')) document.getElementById('filterMenu').style.display = 'none'; };
-
-    displayOrders();
-});
-
-    
     if (document.getElementById('nextBtn')) {
         document.getElementById('nextBtn').onclick = () => { currentPage++; displayOrders(); };
     }
@@ -207,26 +163,35 @@ const newBtn = document.getElementById('newBookingBtn');
         document.getElementById('prevBtn').onclick = () => { currentPage--; displayOrders(); };
     }
 
-    displayOrders();
-
-});
-    
-window.sortOrders = function(type) {
-        if (type === 'highest') allOrders.sort((a, b) => b.amount - a.amount);
-        if (type === 'newest') allOrders.sort((a, b) => new Date(b.date) - new Date(a.date));
-        currentPage = 1;
-        displayOrders();
-        document.getElementById('filterMenu').style.display = 'none';
-    };
-
-    if (document.getElementById('nextBtn')) {
-        document.getElementById('nextBtn').onclick = () => { currentPage++; displayOrders(); };
-        document.getElementById('prevBtn').onclick = () => { currentPage--; displayOrders(); };
+    const newBtn = document.getElementById('newBookingBtn');
+    if (newBtn) {
+        newBtn.onclick = function() {
+            let n = prompt("Customer Name:");
+            let b = prompt("Booth Type:");
+            let a = prompt("Amount (SAR):");
+            let d = prompt("Enter Date (e.g., Apr 28):");
+            
+            if (n && b && a) {
+                allOrders.unshift({ 
+                    id: Date.now(), 
+                    name: n, 
+                    booth: b, 
+                    amount: parseInt(a), 
+                    date: d || "Apr 28", 
+                    status: "Accepted" 
+                });
+                
+                localStorage.setItem('boothOrders', JSON.stringify(allOrders));
+                currentPage = 1;
+                displayOrders();
+                alert("Booking added as Accepted successfully!");
+            }
+        };
     }
 
     displayOrders();
-    
-    });
+
+});
     
 function displayRequests() {
     const container = document.getElementById('bookingList');
