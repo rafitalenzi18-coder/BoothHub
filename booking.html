@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+
     <header class="top-header">
         <div class="header-left">
             <img src="images/logo.png" alt="BoothHub" class="header-logo">
@@ -51,83 +52,53 @@
                 <p>Confirm or reject bookings from this page.</p>
             </section>
 
-            <div class="booking-section">
-                <div class="requests-list">
-                    <h3 style="margin-bottom: 20px; color: #8b5e54;">Pending Booking Requests</h3>
-                    
-                    <div id="bookingList">
-                        <div class="request-card">
-                            <div class="user-info">
-                                <span class="avatar-circle color-pink">NA</span>
-                                <div class="user-text">
-                                    <span style="font-weight: bold; display: block;">Nouf AlHarbi</span>
-                                    <span style="font-size: 0.8rem; color: #888;">Coffee Booth</span>
-                                </div>
-                            </div>
-                            <span class="booking-date">Apr 4, 2026</span>
-                            <div class="actions">
-                                <button class="btn-reject">Reject</button>
-                                <button class="btn-accept">Accept</button>
+            <div class="requests-list">
+                <h3 style="margin-bottom: 25px; color: #8b5e54;">Pending Booking Requests</h3>
+                
+                <div id="bookingList">
+                    <div class="request-card">
+                        <div class="user-info">
+                            <span class="avatar-circle color-pink">NA</span>
+                            <div class="user-text">
+                                <span style="font-weight: bold; display: block;">Nouf AlHarbi</span>
+                                <span style="font-size: 0.8rem; color: #888;">Coffee Booth</span>
                             </div>
                         </div>
-
-                        <div class="request-card">
-                            <div class="user-info">
-                                <span class="avatar-circle color-blue">LA</span>
-                                <div class="user-text">
-                                    <span style="font-weight: bold; display: block;">Layan AlMutairi</span>
-                                    <span style="font-size: 0.8rem; color: #888;">Photography Booth</span>
-                                </div>
-                            </div>
-                            <span class="booking-date">Mar 10, 2026</span>
-                            <div class="actions">
-                                <button class="btn-reject">Reject</button>
-                                <button class="btn-accept">Accept</button>
-                            </div>
-                        </div>
-
-                        <div class="request-card">
-                            <div class="user-info">
-                                <span class="avatar-circle color-beige">RF</span>
-                                <div class="user-text">
-                                    <span style="font-weight: bold; display: block;">Ruba Fahad</span>
-                                    <span style="font-size: 0.8rem; color: #888;">Coffee Booth</span>
-                                </div>
-                            </div>
-                            <span class="booking-date">Feb 15, 2026</span>
-                            <div class="actions">
-                                <button class="btn-reject">Reject</button>
-                                <button class="btn-accept">Accept</button>
-                            </div>
+                        <span class="booking-date">Apr 4, 2026</span>
+                        <div class="actions">
+                            <button class="btn-reject">Reject</button>
+                            <button class="btn-accept">Accept</button>
                         </div>
                     </div>
-                </div>
 
-                <div class="notifications-sidebar">
-                    <h3 style="margin-bottom: 20px; color: #8b5e54;">Notifications</h3>
-                    <div class="notif-card">
-                        <div class="notif-item">
-                            <div class="notif-icon" style="background: #fef6f4; color: #e5a5a5;"><i class="fa fa-bell"></i></div>
-                            <div class="notif-text">
-                                <b>New booking request</b>
-                                <small style="display: block; color: #bbb;">2 HOURS AGO</small>
+                    <div class="request-card">
+                        <div class="user-info">
+                            <span class="avatar-circle color-blue">LA</span>
+                            <div class="user-text">
+                                <span style="font-weight: bold; display: block;">Layan AlMutairi</span>
+                                <span style="font-size: 0.8rem; color: #888;">Photography Booth</span>
                             </div>
                         </div>
-                        <div class="notif-item">
-                            <div class="notif-icon" style="background: #f0f9f4; color: #a5e5c5;"><i class="fa fa-check-circle"></i></div>
-                            <div class="notif-text">
-                                <b>Booking confirmed</b>
-                                <small style="display: block; color: #bbb;">5 HOURS AGO</small>
+                        <span class="booking-date">Mar 10, 2026</span>
+                        <div class="actions">
+                            <button class="btn-reject">Reject</button>
+                            <button class="btn-accept">Accept</button>
+                        </div>
+                    </div>
+
+                    <div class="request-card">
+                        <div class="user-info">
+                            <span class="avatar-circle color-beige">RF</span>
+                            <div class="user-text">
+                                <span style="font-weight: bold; display: block;">Ruba Fahad</span>
+                                <span style="font-size: 0.8rem; color: #888;">Coffee Booth</span>
                             </div>
                         </div>
-                        <div class="notif-item">
-                            <div class="notif-icon" style="background: #f0f4f9; color: #a5c5e5;"><i class="fa fa-wallet"></i></div>
-                            <div class="notif-text">
-                                <b>Payment received</b>
-                                <small style="display: block; color: #bbb;">21 HOURS AGO</small>
-                            </div>
+                        <span class="booking-date">Feb 15, 2026</span>
+                        <div class="actions">
+                            <button class="btn-reject">Reject</button>
+                            <button class="btn-accept">Accept</button>
                         </div>
-                        <button class="view-history">View Full History</button>
                     </div>
                 </div>
             </div>
