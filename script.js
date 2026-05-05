@@ -187,15 +187,15 @@ document.addEventListener('DOMContentLoaded', function() {
             let d = prompt("Enter Date (e.g., Apr 28):");
             let c = prompt("Add Comment (optional):");
             if (n && b && a) {
-                allOrders.unshift({ 
-                    id: Date.now(), 
-                    name: n, 
-                    booth: b, 
-                    amount: parseInt(a), 
-                    date: d || "Apr 28", 
-                    status: "Accepted",
-                    comment: c || ""
-                });
+             allOrders.unshift({ 
+    id: Date.now(), 
+    name: n, 
+    booth: b, 
+    amount: parseInt(a), 
+    date: d || "Apr 28", 
+    status: "Accepted",
+    comment: c || ""   
+});   
                 
                 localStorage.setItem('boothOrders', JSON.stringify(allOrders));
                 currentPage = 1;
