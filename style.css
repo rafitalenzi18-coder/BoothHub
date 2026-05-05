@@ -744,3 +744,12 @@ content-area {
     color: #777;
     width: 100%;
 }
+.comment-text {
+    color: #999;
+    font-size: 0.9rem;
+    max-width: 160px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
