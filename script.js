@@ -113,23 +113,35 @@ document.addEventListener('DOMContentLoaded', function() {
             let initials = getInitials(order.name);
             let assignedColor = colorClasses[index % colorClasses.length];
             let row = `
-                <tr>
-                    <td>
-                        <div class="user-cell">
-                            <span class="avatar-circle ${assignedColor}">${initials}</span>
-                            ${order.name}
-                        </div>
-                    </td>
-                    <td style="color:#999">${order.booth}</td>
-                    <td style="color:#999">${order.date}</td>
-                    <td style="color:#999">${order.amount ?? 0} ريال</td>
-                    <td><span class="badge ${order.status.toLowerCase()}">${order.status}</span></td>
-                    <td style="text-align:center">
-                        <button class="btn-delete-row" onclick="deleteOrder(${start + index})">
-                            <i class="fa fa-trash-can"></i>
-                        </button>
-                    </td>
-                </tr>`;
+<tr>
+    <td>
+        <div class="user-cell">
+            <span class="avatar-circle ${assignedColor}">${initials}</span>
+            ${order.name}
+        </div>
+    </td>
+
+    <td style="color:#999">${order.booth}</td>
+    <td style="color:#999">${order.date}</td>
+    <td style="color:#999">${order.amount ?? 0} ريال</td>
+
+    <td>
+        <span class="badge ${order.status.toLowerCase()}">${order.status}</span>
+    </td>
+
+    
+    <td>
+    <span class="comment-text">
+        ${order.comment ? order.comment : "—"}
+    </span>
+</td>
+
+    <td style="text-align:center">
+        <button class="btn-delete-row" onclick="deleteOrder(${start + index})">
+            <i class="fa fa-trash-can"></i>
+        </button>
+    </td>
+</tr>`;
             tbody.innerHTML += row;
         });
 
@@ -147,7 +159,10 @@ document.addEventListener('DOMContentLoaded', function() {
             displayOrders();
         }
     };
-
+    window.saveComment = function(index, comment) {
+    allOrders[index].comment = comment;
+    localStorage.setItem('boothOrders', JSON.stringify(allOrders));
+    };
     window.sortOrders = function(type) {
         if (type === 'highest') allOrders.sort((a, b) => b.amount - a.amount);
         if (type === 'newest') allOrders.sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -170,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
             let b = prompt("Booth Type:");
             let a = prompt("Amount (SAR):");
             let d = prompt("Enter Date (e.g., Apr 28):");
-            
+            let c = prompt("Add Comment (optional):");
             if (n && b && a) {
                 allOrders.unshift({ 
                     id: Date.now(), 
@@ -179,6 +194,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     amount: parseInt(a), 
                     date: d || "Apr 28", 
                     status: "Accepted" 
+                    comment: c || ""
                 });
                 
                 localStorage.setItem('boothOrders', JSON.stringify(allOrders));
