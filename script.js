@@ -193,8 +193,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     booth: b, 
                     amount: parseInt(a), 
                     date: d || "Apr 28", 
-                    status: "Accepted" ,
-                    comment: c || " "
+                    status: "Accepted",
+                    comment: c || ""
                 });
                 
                 localStorage.setItem('boothOrders', JSON.stringify(allOrders));
