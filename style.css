@@ -199,8 +199,17 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #fef6f4 0%, #f7f3f2 100%);
+
+    background-color: #fef6f4; 
+    background-image: url('images/back.jpg'); 
+    background-repeat: no-repeat;
+    background-position: bottom center; 
+    background-size: contain; 
+    
+    
+    padding-bottom: 80px; 
 }
+
 
 .login-box {
     background: #fff;
