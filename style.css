@@ -747,6 +747,30 @@ content-area {
 
 
 
+.action-bar {
+    display: flex;
+    justify-content: flex-start; 
+    gap: 15px;                  
+    margin-bottom: 20px;        
+    align-items: center;
+}
+
+.filter-wrapper {
+    position: relative; 
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    z-index: 1000;
+    min-width: 160px;
+    margin-top: 5px;
+}
 
 
 
