@@ -252,20 +252,28 @@ document.addEventListener('DOMContentLoaded', displayRequests);
 
 
 
-// Toggle Filter Menu
-const filterBtn = document.getElementById("filterBtn");
-const filterMenu = document.getElementById("filterMenu");
 
-if (filterBtn && filterMenu) {
-    filterBtn.addEventListener("click", () => {
-        filterMenu.classList.toggle("show-menu");
-    });
 
+
+window.sortOrders = function(type) {
+    if (type === 'highest') {
+        allOrders.sort((a, b) => (b.amount || 0) - (a.amount || 0));
+    } else if (type === 'lowest') {
+        allOrders.sort((a, b) => (a.amount || 0) - (b.amount || 0));
+    } else if (type === 'newest') {
+       
+        allOrders.sort((a, b) => new Date(b.date) - new Date(a.date));
+    } else if (type === 'oldest') {
+        allOrders.sort((a, b) => new Date(a.date) - new Date(b.date));
+    }
+
+    currentPage = 1;
+    displayOrders();
+    
    
-    document.addEventListener("click", (e) => {
-        if (!filterBtn.contains(e.target) && !filterMenu.contains(e.target)) {
-            filterMenu.classList.remove("show-menu");
-        }
-    });
-}
+    const menu = document.getElementById('filterMenu');
+    if (menu) menu.style.display = 'none';
+};
+
+
 
