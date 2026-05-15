@@ -752,31 +752,6 @@ content-area {
 
 
 
-.dropdown-menu {
-    display: none;
-    background: #fff;
-    border: 1px solid #ddd;
-    padding: 10px;
-    position: absolute;
-    margin-top: 5px;
-    border-radius: 6px;
-    width: 150px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.dropdown-menu.show-menu {
-    display: block;
-}
-
-.menu-item {
-    padding: 8px;
-    cursor: pointer;
-    font-size: 0.9rem;
-}
-
-.menu-item:hover {
-    background: #f5f5f5;
-}
 
 
 
