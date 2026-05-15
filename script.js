@@ -248,4 +248,24 @@ function processAction(id) {
 }
 
 document.addEventListener('DOMContentLoaded', displayRequests);
-    
+
+
+
+
+// Toggle Filter Menu
+const filterBtn = document.getElementById("filterBtn");
+const filterMenu = document.getElementById("filterMenu");
+
+if (filterBtn && filterMenu) {
+    filterBtn.addEventListener("click", () => {
+        filterMenu.classList.toggle("show-menu");
+    });
+
+   
+    document.addEventListener("click", (e) => {
+        if (!filterBtn.contains(e.target) && !filterMenu.contains(e.target)) {
+            filterMenu.classList.remove("show-menu");
+        }
+    });
+}
+
