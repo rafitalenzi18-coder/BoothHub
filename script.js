@@ -276,6 +276,89 @@ function processAction(id) {
 document.addEventListener('DOMContentLoaded', displayRequests);
 
 
+document.addEventListener('DOMContentLoaded', function() {
+    
+    const requestCards = document.querySelectorAll('.request-card');
+    
+    if (requestCards.length > 0) {
+        requestCards.forEach((card) => {
+            const acceptBtn = card.querySelector('.accept-btn');
+            const rejectBtn = card.querySelector('.reject-btn');
+            const actionButtonsDiv = card.querySelector('.action-buttons');
+            
+            const userName = card.querySelector('.user-name')?.textContent.trim() || "Unknown";
+            const boothType = card.querySelector('.booth-type')?.textContent.trim() || "Booth";
+            const bookingDate = card.querySelector('.booking-date')?.textContent.trim() || "Apr 4, 2026";
+            const avatarText = card.querySelector('.user-avatar')?.textContent.trim() || "UN";
+
+            function processBooking(newStatus) {
+                let bookingsData = JSON.parse(localStorage.getItem('allBookings')) || [];
+                let existingBooking = bookingsData.find(b => b.name === userName);
+                
+                if (existingBooking) {
+                    existingBooking.status = newStatus;
+                } else {
+                    bookingsData.push({
+                        name: userName,
+                        booth: boothType,
+                        date: bookingDate,
+                        avatar: avatarText,
+                        status: newStatus
+                    });
+                }
+                
+                localStorage.setItem('allBookings', JSON.stringify(bookingsData));
+
+                if (actionButtonsDiv) {
+                    if (newStatus === 'accepted') {
+                        actionButtonsDiv.innerHTML = '<span class="badge accepted">Accepted</span>';
+                    } else if (newStatus === 'rejected') {
+                        actionButtonsDiv.innerHTML = '<span class="badge rejected">Rejected</span>';
+                    }
+                }
+            }
+
+            if (acceptBtn) {
+                acceptBtn.addEventListener('click', function() {
+                    processBooking('accepted');
+                });
+            }
+
+            if (rejectBtn) {
+                rejectBtn.addEventListener('click', function() {
+                    processBooking('rejected');
+                });
+            }
+        });
+    }
+
+    const bookingsTable = document.querySelector('.bookings-table, .orders-table');
+    if (bookingsTable) {
+        const tbody = bookingsTable.querySelector('tbody');
+        let bookingsData = JSON.parse(localStorage.getItem('allBookings')) || [];
+
+        if (tbody && bookingsData.length > 0) {
+            tbody.innerHTML = ''; 
+
+            bookingsData.forEach((data) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>
+                        <div class="user-cell">
+                            <div class="avatar-circle color-beige">${data.avatar}</div>
+                            <span>${data.name}</span>
+                        </div>
+                    </td>
+                    <td>${data.booth}</td>
+                    <td>${data.date}</td>
+                    <td><span class="badge ${data.status}">${data.status.charAt(0).toUpperCase() + data.status.slice(1)}</span></td>
+                    <td><button class="btn-delete-row"><i class="fa-solid fa-trash"></i></button></td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+    }
+});
 
 
 
