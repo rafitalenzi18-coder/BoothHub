@@ -254,43 +254,23 @@ document.addEventListener('DOMContentLoaded', displayRequests);
 
 
 
+
 window.sortOrders = function(type) {
     if (type === 'highest') {
         allOrders.sort((a, b) => (b.amount || 0) - (a.amount || 0));
     } else if (type === 'lowest') {
         allOrders.sort((a, b) => (a.amount || 0) - (b.amount || 0));
     } else if (type === 'newest') {
+      
         allOrders.sort((a, b) => new Date(b.date) - new Date(a.date));
     } else if (type === 'oldest') {
         allOrders.sort((a, b) => new Date(a.date) - new Date(b.date));
     }
 
-    currentPage = 1;
-    displayOrders();
-
-   
-    const menu = document.getElementById('filterMenu');
-    if (menu) {
-        menu.classList.remove('show'); 
-        menu.style.display = 'none';
-    }
-};
-
-
-const filterBtn = document.getElementById('filterBtn');
-if (filterBtn) {
-    filterBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const menu = document.getElementById('filterMenu');
-        
-        const isVisible = menu.style.display === 'block';
-        menu.style.display = isVisible ? 'none' : 'block';
-    });
-}
-
-document.addEventListener('click', function() {
+    currentPage = 1; 
+    displayOrders(); 
+    
+    
     const menu = document.getElementById('filterMenu');
     if (menu) menu.style.display = 'none';
-});
-
-
+};
