@@ -231,6 +231,32 @@ window.addEventListener('click', function() {
         };
     }
 
+    // === كود تشغيل أزرار التنقل  لصفحة الأوردرز ===
+    const nextButton = document.getElementById('nextBtn');
+    const prevButton = document.getElementById('prevBtn');
+
+    if (nextButton) {
+        nextButton.onclick = function() {
+            if ((currentPage * rowsPerPage) < allOrders.length) {
+                currentPage++;
+                displayOrders();
+            }
+        };
+    }
+
+    if (prevButton) {
+        prevButton.onclick = function() {
+            if (currentPage > 1) {
+                currentPage--;
+                displayOrders();
+            }
+        };
+    }
+
+
+
+
+    
     displayOrders();
 
 });
@@ -332,7 +358,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    const bookingsTable = document.querySelector('.bookings-table, .orders-table');
+    const bookingsTable = document.querySelector('.bookings-table');
+
     if (bookingsTable) {
         const tbody = bookingsTable.querySelector('tbody');
         let bookingsData = JSON.parse(localStorage.getItem('allBookings')) || [];
