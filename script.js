@@ -109,34 +109,37 @@ document.addEventListener('DOMContentLoaded', function() {
         let end = start + rowsPerPage;
         let pageItems = allOrders.slice(start, end);
 
-        pageItems.forEach((order, index) => {
+
+        
+                pageItems.forEach((order, index) => {
             let initials = getInitials(order.name);
             let assignedColor = colorClasses[index % colorClasses.length];
             let row = `
 <tr>
-    <td>
+    <td style="width: 22%;">
         <div class="user-cell">
             <span class="avatar-circle ${assignedColor}">${initials}</span>
             ${order.name}
         </div>
     </td>
 
-    <td style="color:#999">${order.booth}</td>
-    <td style="color:#999">${order.date}</td>
-    <td style="color:#999">${order.amount ?? 0} ريال</td>
+    <td style="color:#999; width: 18%;">${order.booth}</td>
+    
+    <td style="color:#999; width: 14%;">${order.date}</td>
+    
+    <td style="color:#999; width: 13%;">${order.amount ?? 0} ريال</td>
 
-    <td>
+    <td style="width: 13%;">
         <span class="badge ${order.status.toLowerCase()}">${order.status}</span>
     </td>
 
-    
-    <td>
-    <span class="comment-text">
-        ${order.comment ? order.comment : "—"}
-    </span>
-</td>
+    <td style="width: 12%;">
+        <span class="comment-text">
+            ${order.comment ? order.comment : "—"}
+        </span>
+    </td>
 
-    <td style="text-align:center">
+    <td style="text-align:center; width: 8%;">
         <button class="btn-delete-row" onclick="deleteOrder(${start + index})">
             <i class="fa fa-trash-can"></i>
         </button>
@@ -144,6 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </tr>`;
             tbody.innerHTML += row;
         });
+
 
         const pageInfo = document.getElementById('pageInfo');
         if (pageInfo) pageInfo.innerText = `Showing ${start + 1}-${Math.min(end, allOrders.length)} of ${allOrders.length} orders`;
