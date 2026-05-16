@@ -352,11 +352,14 @@ document.addEventListener('DOMContentLoaded', function() {
         let bookingsData = JSON.parse(localStorage.getItem('allBookings')) || [];
 
         allRows.forEach((row) => {
+            // Ensure the row is visible by default so names never disappear
+            row.style.display = ''; 
+            
             const rowText = row.textContent.toLowerCase();
             
             const matchedData = bookingsData.find(b => {
                 const firstName = b.name.split(' ')[0].toLowerCase();
-                return rowText.includes(firstName);
+                return firstName.length > 1 && rowText.includes(firstName);
             });
 
             if (matchedData) {
