@@ -299,14 +299,13 @@ function processAction(id) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', displayRequests);
-
-
 document.addEventListener('DOMContentLoaded', function() {
     
     const requestCards = document.querySelectorAll('.request-card');
     
     if (requestCards.length > 0) {
+        let bookingsData = JSON.parse(localStorage.getItem('allBookings')) || [];
+
         requestCards.forEach((card) => {
             const acceptBtn = card.querySelector('.accept-btn');
             const rejectBtn = card.querySelector('.reject-btn');
@@ -317,14 +316,23 @@ document.addEventListener('DOMContentLoaded', function() {
             const bookingDate = card.querySelector('.booking-date')?.textContent.trim() || "Apr 4, 2026";
             const avatarText = card.querySelector('.user-avatar')?.textContent.trim() || "UN";
 
+            const savedBooking = bookingsData.find(b => b.name === userName);
+            if (savedBooking && actionButtonsDiv) {
+                if (savedBooking.status === 'accepted') {
+                    actionButtonsDiv.innerHTML = '<span class="badge accepted">Accepted</span>';
+                } else if (savedBooking.status === 'rejected') {
+                    actionButtonsDiv.innerHTML = '<span class="badge rejected">Rejected</span>';
+                }
+            }
+
             function processBooking(newStatus) {
-                let bookingsData = JSON.parse(localStorage.getItem('allBookings')) || [];
-                let existingBooking = bookingsData.find(b => b.name === userName);
+                let currentData = JSON.parse(localStorage.getItem('allBookings')) || [];
+                let existingBooking = currentData.find(b => b.name === userName);
                 
                 if (existingBooking) {
                     existingBooking.status = newStatus;
                 } else {
-                    bookingsData.push({
+                    currentData.push({
                         name: userName,
                         booth: boothType,
                         date: bookingDate,
@@ -333,7 +341,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                 }
                 
-                localStorage.setItem('allBookings', JSON.stringify(bookingsData));
+                localStorage.setItem('allBookings', JSON.stringify(currentData));
 
                 if (actionButtonsDiv) {
                     if (newStatus === 'accepted') {
@@ -358,34 +366,32 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    const bookingsTable = document.querySelector('.bookings-table');
-
-    if (bookingsTable) {
-        const tbody = bookingsTable.querySelector('tbody');
+    const allTables = document.querySelectorAll('.bookings-table, .orders-table');
+    if (allTables.length > 0) {
         let bookingsData = JSON.parse(localStorage.getItem('allBookings')) || [];
 
-        if (tbody && bookingsData.length > 0) {
-            tbody.innerHTML = ''; 
+        allTables.forEach((table) => {
+            const tbody = table.querySelector('tbody');
+            if (tbody && bookingsData.length > 0) {
+                tbody.innerHTML = ''; 
 
-            bookingsData.forEach((data) => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>
-                        <div class="user-cell">
-                            <div class="avatar-circle color-beige">${data.avatar}</div>
-                            <span>${data.name}</span>
-                        </div>
-                    </td>
-                    <td>${data.booth}</td>
-                    <td>${data.date}</td>
-                    <td><span class="badge ${data.status}">${data.status.charAt(0).toUpperCase() + data.status.slice(1)}</span></td>
-                    <td><button class="btn-delete-row"><i class="fa-solid fa-trash"></i></button></td>
-                `;
-                tbody.appendChild(row);
-            });
-        }
+                bookingsData.forEach((data) => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>
+                            <div class="user-cell">
+                                <div class="avatar-circle color-beige">${data.avatar}</div>
+                                <span>${data.name}</span>
+                            </div>
+                        </td>
+                        <td>${data.booth}</td>
+                        <td>${data.date}</td>
+                        <td><span class="badge ${data.status}">${data.status.charAt(0).toUpperCase() + data.status.slice(1)}</span></td>
+                        <td><button class="btn-delete-row"><i class="fa-solid fa-trash"></i></button></td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            }
+        });
     }
 });
-
-
-
