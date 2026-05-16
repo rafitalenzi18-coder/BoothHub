@@ -298,3 +298,82 @@ function processAction(id) {
         setTimeout(() => card.remove(), 300);
     }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    
+    const requestCards = document.querySelectorAll('.request-card');
+    
+    if (requestCards.length > 0) {
+        let bookingsData = JSON.parse(localStorage.getItem('allBookings')) || [];
+        const container = requestCards[0].parentElement;
+
+        requestCards.forEach((card) => {
+            const acceptBtn = card.querySelector('.accept-btn');
+            const rejectBtn = card.querySelector('.reject-btn');
+            const actionButtonsDiv = card.querySelector('.action-buttons');
+            const userName = card.querySelector('.user-name')?.textContent.trim() || "";
+
+            const saved = bookingsData.find(b => {
+                const firstName = b.name.split(' ')[0].toLowerCase();
+                return userName.toLowerCase().includes(firstName);
+            });
+
+            if (saved && actionButtonsDiv) {
+                actionButtonsDiv.innerHTML = `<span class="badge ${saved.status}">${saved.status.charAt(0).toUpperCase() + saved.status.slice(1)}</span>`;
+                if (container) {
+                    container.appendChild(card);
+                }
+            }
+
+            function processAction(statusName) {
+                let currentData = JSON.parse(localStorage.getItem('allBookings')) || [];
+                let existing = currentData.find(b => {
+                    const firstName = b.name.split(' ')[0].toLowerCase();
+                    return userName.toLowerCase().includes(firstName);
+                });
+                
+                if (!existing) {
+                    currentData.push({ name: userName, status: statusName });
+                } else {
+                    existing.status = statusName;
+                    existing.name = userName; 
+                }
+                
+                localStorage.setItem('allBookings', JSON.stringify(currentData));
+
+                if (actionButtonsDiv) {
+                    actionButtonsDiv.innerHTML = `<span class="badge ${statusName}">${statusName.charAt(0).toUpperCase() + statusName.slice(1)}</span>`;
+                }
+
+                if (container) {
+                    container.appendChild(card);
+                }
+            }
+
+            if (acceptBtn) acceptBtn.addEventListener('click', () => processAction('accepted'));
+            if (rejectBtn) rejectBtn.addEventListener('click', () => processAction('rejected'));
+        });
+    }
+
+    const allRows = document.querySelectorAll('.bookings-table tbody tr, .orders-table tbody tr');
+    if (allRows.length > 0) {
+        let bookingsData = JSON.parse(localStorage.getItem('allBookings')) || [];
+
+        allRows.forEach((row) => {
+            const rowText = row.textContent.toLowerCase();
+            
+            const matchedData = bookingsData.find(b => {
+                const firstName = b.name.split(' ')[0].toLowerCase();
+                return firstName.length > 1 && rowText.includes(firstName);
+            });
+
+            if (matchedData) {
+                const badge = row.querySelector('.badge');
+                if (badge) {
+                    badge.className = `badge ${matchedData.status}`;
+                    badge.textContent = matchedData.status.charAt(0).toUpperCase() + matchedData.status.slice(1);
+                }
+            }
+        });
+    }
+});
