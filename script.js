@@ -231,7 +231,7 @@ window.addEventListener('click', function() {
         };
     }
 
-    // === كود تشغيل أزرار التنقل  لصفحة الأوردرز ===
+
     const nextButton = document.getElementById('nextBtn');
     const prevButton = document.getElementById('prevBtn');
 
@@ -252,10 +252,6 @@ window.addEventListener('click', function() {
             }
         };
     }
-
-
-
-
     
     displayOrders();
 
