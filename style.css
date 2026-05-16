@@ -514,11 +514,37 @@ body {
 
 
 
-
 .table-card { background: white; border-radius: 25px; padding: 25px; box-shadow: 0 10px 40px rgba(0,0,0,0.02); }
-.orders-table { width: 100%; border-collapse: collapse; }
+
+/* 1. أضفنا سطر لمنع الجدول من التمدد العشوائي */
+.orders-table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    table-layout: fixed; 
+}
+
 .orders-table th { text-align: left; padding: 15px; color: #bbb; font-size: 0.75rem; letter-spacing: 1px; border-bottom: 1px solid #eee; }
-.orders-table td { padding: 18px 15px; border-bottom: 1px solid #f9f9f9; font-size: 0.9rem; color: #444; }
+
+/* 2. أضفنا حماية للخلايا لمنع الكلمات الطويلة من دفع الكولوم */
+.orders-table td { 
+    padding: 18px 15px; 
+    border-bottom: 1px solid #f9f9f9; 
+    font-size: 0.9rem; 
+    color: #444; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 3. توزيع النسب الثابتة والمثالية للأعمدة السبعة بالترتيب من اليسار لليمين */
+.orders-table th:nth-child(1), .orders-table td:nth-child(1) { width: 22%; } /* CUSTOMER */
+.orders-table th:nth-child(2), .orders-table td:nth-child(2) { width: 18%; } /* BOOTH TYPE */
+.orders-table th:nth-child(3), .orders-table td:nth-child(3) { width: 14%; } /* ORDER DATE */
+.orders-table th:nth-child(4), .orders-table td:nth-child(4) { width: 13%; } /* AMOUNT */
+.orders-table th:nth-child(5), .orders-table td:nth-child(5) { width: 13%; } /* STATUS */
+.orders-table th:nth-child(6), .orders-table td:nth-child(6) { width: 12%; } /* COMMENT */
+.orders-table th:nth-child(7), .orders-table td:nth-child(7) { width: 8%; }  /* ACTION */
+
 
 .avatar-circle {
     width: 38px;
