@@ -298,3 +298,106 @@ function processAction(id) {
         setTimeout(() => card.remove(), 300);
     }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    
+    const requestCards = document.querySelectorAll('.request-card');
+    
+    if (requestCards.length > 0) {
+        let bookingsData = JSON.parse(localStorage.getItem('allBookings')) || [];
+
+        requestCards.forEach((card) => {
+            const acceptBtn = card.querySelector('.accept-btn');
+            const rejectBtn = card.querySelector('.reject-btn');
+            
+            const userName = card.querySelector('.user-name')?.textContent.trim() || "";
+            const boothType = card.querySelector('.booth-type')?.textContent.trim() || "";
+            const bookingDate = card.querySelector('.booking-date')?.textContent.trim() || "";
+            const avatarText = card.querySelector('.user-avatar')?.textContent.trim() || "UN";
+
+            const saved = bookingsData.find(b => b.name === userName);
+            if (saved) {
+                card.style.display = 'none';
+            }
+
+            function processAction(statusName) {
+                let currentData = JSON.parse(localStorage.getItem('allBookings')) || [];
+                let existing = currentData.find(b => b.name === userName);
+                
+                if (!existing) {
+                    currentData.push({
+                        name: userName,
+                        booth: boothType,
+                        date: bookingDate,
+                        avatar: avatarText,
+                        status: statusName
+                    });
+                } else {
+                    existing.status = statusName;
+                }
+                
+                localStorage.setItem('allBookings', JSON.stringify(currentData));
+                card.style.display = 'none';
+            }
+
+            if (acceptBtn) acceptBtn.addEventListener('click', () => processAction('accepted'));
+            if (rejectBtn) rejectBtn.addEventListener('click', () => processAction('rejected'));
+        });
+    }
+
+    const dashboardTable = document.querySelector('.recent-bookings .bookings-table');
+    if (dashboardTable) {
+        const tbody = dashboardTable.querySelector('tbody') || dashboardTable;
+        let bookingsData = JSON.parse(localStorage.getItem('allBookings')) || [];
+
+        if (tbody && bookingsData.length > 0) {
+            bookingsData.forEach((data) => {
+                const isExist = Array.from(tbody.querySelectorAll('tr')).some(row => row.textContent.includes(data.name));
+                
+                if (!isExist) {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>
+                            <div class="user-cell">
+                                <div class="avatar" style="background: #eecbc4;">${data.avatar}</div>
+                                <span>${data.name}</span>
+                            </div>
+                        </td>
+                        <td>${data.date}</td>
+                        <td><span class="badge ${data.status}">${data.status.charAt(0).toUpperCase() + data.status.slice(1)}</span></td>
+                    `;
+                    tbody.appendChild(row);
+                }
+            });
+        }
+    }
+
+    const ordersTable = document.querySelector('.table-card .orders-table');
+    if (ordersTable) {
+        const tbody = ordersTable.querySelector('tbody') || ordersTable;
+        let bookingsData = JSON.parse(localStorage.getItem('allBookings')) || [];
+
+        if (tbody && bookingsData.length > 0) {
+            bookingsData.forEach((data) => {
+                const isExist = Array.from(tbody.querySelectorAll('tr')).some(row => row.textContent.includes(data.name));
+                
+                if (!isExist) {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>
+                            <div class="user-cell">
+                                <div class="avatar-circle color-beige">${data.avatar}</div>
+                                <span>${data.name}</span>
+                            </div>
+                        </td>
+                        <td>${data.booth}</td>
+                        <td>${data.date}</td>
+                        <td><span class="badge ${data.status}">${data.status.charAt(0).toUpperCase() + data.status.slice(1)}</span></td>
+                        <td><button class="btn-delete-row"><i class="fa-solid fa-trash"></i></button></td>
+                    `;
+                    tbody.appendChild(row);
+                }
+            });
+        }
+    }
+});
