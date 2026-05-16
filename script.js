@@ -367,13 +367,4 @@ document.addEventListener('DOMContentLoaded', function() {
                 return firstName.length > 1 && rowText.includes(firstName);
             });
 
-            if (matchedData) {
-                const badge = row.querySelector('.badge');
-                if (badge) {
-                    badge.className = `badge ${matchedData.status}`;
-                    badge.textContent = matchedData.status.charAt(0).toUpperCase() + matchedData.status.slice(1);
-                }
-            }
-        });
-    }
-});
+       
