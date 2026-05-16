@@ -315,10 +315,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const saved = bookingsData.find(b => b.name === userName);
             if (saved && actionButtonsDiv) {
-                actionButtonsDiv.innerHTML = `<span class="badge ${saved.status}">${saved.status.charAt(0).toUpperCase() + saved.status.slice(1)}</span>`;
-                if (container) {
-                    container.appendChild(card);
-                }
+                actionButtonsDiv.innerHTML = <span class="badge ${saved.status}">${saved.status.charAt(0).toUpperCase() + saved.status.slice(1)}</span>;
+                if (container) container.appendChild(card);
             }
 
             function processAction(statusName) {
@@ -334,12 +332,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 localStorage.setItem('allBookings', JSON.stringify(currentData));
 
                 if (actionButtonsDiv) {
-                    actionButtonsDiv.innerHTML = `<span class="badge ${statusName}">${statusName.charAt(0).toUpperCase() + statusName.slice(1)}</span>`;
+                    actionButtonsDiv.innerHTML = <span class="badge ${statusName}">${statusName.charAt(0).toUpperCase() + statusName.slice(1)}</span>;
                 }
-
-                if (container) {
-                    container.appendChild(card);
-                }
+                if (container) container.appendChild(card);
             }
 
             if (acceptBtn) acceptBtn.addEventListener('click', () => processAction('accepted'));
@@ -362,7 +357,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (matchedData) {
                 const badge = row.querySelector('.badge');
                 if (badge) {
-                    badge.className = `badge ${matchedData.status}`;
+                    badge.className = badge ${matchedData.status};
                     badge.textContent = matchedData.status.charAt(0).toUpperCase() + matchedData.status.slice(1);
                 }
             }
