@@ -352,9 +352,6 @@ document.addEventListener('DOMContentLoaded', function() {
         let bookingsData = JSON.parse(localStorage.getItem('allBookings')) || [];
 
         allRows.forEach((row) => {
-            // Ensure the row is visible by default so names never disappear
-            row.style.display = ''; 
-            
             const rowText = row.textContent.toLowerCase();
             
             const matchedData = bookingsData.find(b => {
