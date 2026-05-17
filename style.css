@@ -271,8 +271,15 @@ body {
     border-radius: 20px;
     text-align: center;
     box-shadow: 0 6px 20px rgba(0,0,0,0.02);
-    transition: 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.stat-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+}    
+
 .stat-card p {
     font-size: 0.8rem;
     font-weight: 700;
